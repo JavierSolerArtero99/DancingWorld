@@ -6,7 +6,6 @@ let inicia = function(el) {
     let speed = 15; //1 to 100
     let incX = speed * (Math.round(Math.random())?1:-1);
     let incY = speed * (Math.round(Math.random())?1:-1);
-    //let el=document.getElementById("el");
 
     dw=function danceWorld(){
     
