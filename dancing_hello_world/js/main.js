@@ -9,7 +9,6 @@ export let app = (function (el) {
     let incY = speed * (Math.round(Math.random()) ? 1 : -1);
 
     let dw = function (el) {
-
         x = el.style.left ? parseInt(el.style.left, 10) : 350;
         y = el.style.top ? parseInt(el.style.top, 10) : 400;
 
