@@ -1,5 +1,6 @@
 'use strict'
 
+import '../css/style.css'
 import docReady from './core/core.js';
 import './controlers/stopball.js';
 
