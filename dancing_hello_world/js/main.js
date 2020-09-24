@@ -1,19 +1,23 @@
-import { docReady } from "./core/core";
+'use strict'
+
+import docReady from './core/core.js';
+import './controlers/stopball.js';
 
 export let app = (function (el) {
-    let myApp
+    let myApp;
     let stateApp = "stop"
+    let ballInterval;
 
     let speed = 15; //1 to 100
     let incX = speed * (Math.round(Math.random()) ? 1 : -1);
     let incY = speed * (Math.round(Math.random()) ? 1 : -1);
+    let element = document.getElementsByTagName("h1")[0];
 
-    let dw = function (el) {
-        x = el.style.left ? parseInt(el.style.left, 10) : 350;
-        y = el.style.top ? parseInt(el.style.top, 10) : 400;
-
-        el.style.left = x + incX + "px";
-        el.style.top = y + incY + "px";
+    let dw = function () {
+        let x = element.style.left ? parseInt(element.style.left, 10) : 350;
+        let y = element.style.top ? parseInt(element.style.top, 10) : 400;
+        element.style.left = x + incX + "px";
+        element.style.top = y + incY + "px";
 
         //Detect if we reach X coordinates limits
         if (((x + incX) > (window.innerWidth - 40)) || ((x + incX) <= 0))
@@ -26,7 +30,7 @@ export let app = (function (el) {
 
     let start = function () {
         stateApp = "run"
-        myApp = setInterval(dw(document.getElementById("ball")), 50);
+        myApp = setInterval(dw, 50);
     }
 
     let stop = function () {
